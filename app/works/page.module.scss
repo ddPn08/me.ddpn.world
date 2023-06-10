@@ -1,0 +1,42 @@
+.container {
+  margin-top: 2.5rem;
+
+  & > h1 {
+    margin: 0;
+  }
+
+  & > div {
+    display: grid;
+    margin-top: 1rem;
+    gap: 1rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+
+    @media (width >= 768px) {
+      grid-template-columns: repeat(2, minmax(380px, 1fr));
+    }
+  }
+}
+
+.work-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2px;
+  margin-top: 1rem;
+  color: var(--color-primary);
+  gap: 1rem;
+
+  img {
+    border-radius: 0.5rem;
+  }
+
+  & > div {
+    width: 100%;
+    text-align: left;
+
+    h2,
+    p {
+      margin: 0;
+    }
+  }
+}

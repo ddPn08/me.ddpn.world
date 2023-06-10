@@ -1,95 +1,112 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
 
-export default function Home() {
+import styles from './page.module.scss'
+
+import IconGithub from '~icons/thirdparty/github'
+import IconKoFi from '~icons/thirdparty/ko-fi'
+import IconTwitter from '~icons/thirdparty/twitter'
+import IconTwemojiBread from '~icons/twemoji/bread'
+import IconTwemojiEnvelope from '~icons/twemoji/envelope'
+import IconVscodeJava from '~icons/vscode-icons/file-type-java'
+import IconVscodeJavascript from '~icons/vscode-icons/file-type-js-official'
+import IconVscodeKotlin from '~icons/vscode-icons/file-type-kotlin'
+import IconVscodePython from '~icons/vscode-icons/file-type-python'
+import IconVscodeTypescript from '~icons/vscode-icons/file-type-typescript-official'
+
+const LINKS = [
+  {
+    name: 'Twitter',
+    href: 'https://twitter.com/ddpn08',
+    icon: <IconTwitter />,
+  },
+  {
+    name: 'GitHub',
+    href: 'https://github.com/ddPn08',
+    icon: <IconGithub />,
+  },
+  {
+    name: 'Email',
+    href: 'mailto:contact@ddpn.world',
+    icon: <IconTwemojiEnvelope />,
+  },
+  {
+    name: 'Ko-fi',
+    href: 'https://ko-fi.com/ddpn08',
+    icon: <IconKoFi />,
+  },
+]
+
+const Links: React.FC = () => {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className={styles.links}>
+      {LINKS.map((link, i) => (
+        <div key={i}>
+          <div className={styles['links-icon']}>{link.icon}</div>
+          <div className={styles['links-title']}>
+            <a href={link.href} target="_blank" rel="noopener noreferrer">
+              {link.name}
+            </a>
+          </div>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      ))}
+    </div>
   )
 }
+
+const LANGUAGES = [
+  {
+    name: 'TypeScript',
+    icon: <IconVscodeTypescript />,
+  },
+  {
+    name: 'JavaScript',
+    icon: <IconVscodeJavascript />,
+  },
+  {
+    name: 'Python',
+    icon: <IconVscodePython />,
+  },
+  {
+    name: 'Java',
+    icon: <IconVscodeJava />,
+  },
+  {
+    name: 'Kotlin',
+    icon: <IconVscodeKotlin />,
+  },
+]
+
+const Languages: React.FC = () => {
+  return (
+    <div className={styles.languages}>
+      {LANGUAGES.map((language, i) => (
+        <div key={i}>
+          <div>{language.icon}</div>
+          <div>{language.name}</div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+const Home = () => {
+  return (
+    <div>
+      <h1>だれですか？</h1>
+      <p>
+        だだっこぱんだ
+        <span>
+          <IconTwemojiBread />
+        </span>
+        です 。 日々ピアノを叩く技術系草食動物です。マイブームはMK8DXです。
+      </p>
+      <Links />
+      <h1>よく使う言語</h1>
+      <Languages />
+    </div>
+  )
+}
+
+export default Home
+
+export const runtime = 'edge'
