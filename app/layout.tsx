@@ -11,6 +11,7 @@ const title = 'I am ddPn08'
 const description = "ddPn08's portfolio site"
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://me.ddpn.world'),
   title,
   description,
   openGraph: {
@@ -19,7 +20,11 @@ export const metadata: Metadata = {
     url: 'https://me.ddpn.world',
     siteName: 'me.ddpn.world',
     type: 'website',
-    images: ['https://me.ddpn.world/favicon.png'],
+    images: ['favicon.png'],
+  },
+  twitter: {
+    card: 'summary',
+    creator: '@ddPn08',
   },
   icons: {
     apple: 'apple-touch-icon.png',
@@ -29,10 +34,6 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="ja">
-      <head>
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:creator" content="ddpn08" />
-      </head>
       <body className={zen_kaku_gothic_new.className}>
         <NextTopLoader />
         <Header />

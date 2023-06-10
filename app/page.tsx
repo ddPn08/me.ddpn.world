@@ -40,14 +40,12 @@ const Links: React.FC = () => {
   return (
     <div className={styles.links}>
       {LINKS.map((link, i) => (
-        <div key={i}>
-          <div className={styles['links-icon']}>{link.icon}</div>
-          <div className={styles['links-title']}>
-            <a href={link.href} target="_blank" rel="noopener noreferrer">
-              {link.name}
-            </a>
+        <a key={i} href={link.href} target="_blank" rel="noopener noreferrer">
+          <div className={styles['link-item']}>
+            <div className={styles['link-item-icon']}>{link.icon}</div>
+            <div className={styles['link-item-title']}>{link.name}</div>
           </div>
-        </div>
+        </a>
       ))}
     </div>
   )
