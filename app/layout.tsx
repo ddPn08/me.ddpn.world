@@ -7,10 +7,18 @@ import NextTopLoader from 'nextjs-toploader'
 
 const zen_kaku_gothic_new = Zen_Kaku_Gothic_New({ weight: '700', subsets: ['latin'] })
 
+const title = 'I am ddPn08'
+const description = "ddPn08's portfolio site"
+
 export const metadata: Metadata = {
-  title: 'I am ddPn08',
-  description: "ddPn08's portfolio site",
+  title,
+  description,
   openGraph: {
+    title,
+    description,
+    url: 'https://me.ddpn.world',
+    siteName: 'me.ddpn.world',
+    type: 'website',
     images: ['https://me.ddpn.world/favicon.png'],
   },
   icons: {
